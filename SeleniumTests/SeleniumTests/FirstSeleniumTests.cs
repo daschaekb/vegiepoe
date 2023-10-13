@@ -1,114 +1,188 @@
-﻿using NUnit.Framework;
+﻿using System.Globalization;
+using NUnit.Framework;
 using NUnit.Framework.Internal.Execution;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+using SeleniumTests.Pages;
 
 namespace SeleniumTests
 {
-public class FirstSeleniumTests
-{
-// Открыть браузер
-// Перейти на страницу https://ru.wikipedia.org/
-// Ввести в поле поиска слово «Selenium»
-// Нажать кнопку поиска
-// Убедиться, что перешли на страницу про Selenium
-//Страница_Действие_ОжидаемыйРезультат
+    
+    public class FirstSeleniumTests : SeleniumTestBase
+    {
+        [Test]
+        public void MyFirstSeleniumTest()
+        {
+            driver.Navigate().GoToUrl("https://ru.wikipedia.org/");
+            IWebElement queryInput = driver.FindElement(By.Name("search"));
+            IWebElement searchButton = driver.FindElement(By.Name("go"));
+            queryInput.SendKeys("Selenium");
+            searchButton.Click();
+            
+            Assert.IsTrue(driver.Title.Contains("Selenium — Википедия"), "Не перешли на страницу про Selenium");
+            Assert.AreEqual("Selenium — Википедия", driver.Title, "Не перешли на страницу про Selenium");
+        }
 
-[SetUp]
-public void SetUp()
-{
-//открываем браузер, разворачиваем его на полный экран
-var options = new ChromeOptions();
-options.AddArgument("start-maximized");
-driver = new ChromeDriver(options);
-}
+        [Test]
 
+        public void Practice()
+        {
+            driver.Navigate().GoToUrl("https://www.labirint.ru/");
+            var input = By.Id("search-field");
+            var blocks = driver.FindElements(By.ClassName("product-padding"));
+            var search = driver.FindElement(By.Name("labsearch"));
+            var allGoods = driver.FindElement(By.XPath("//span[text()='Все товары']"));
+            allGoods = driver.FindElement(By.CssSelector(".sorting-items.sorting-active"));
+            var years = driver.FindElements(By.CssSelector("select[name='year_begin'] option:not([selected])"));
+            var link = driver.FindElement(By.LinkText("Как сделать заказ"));
+        }
+            
+        
+        [Test]
+        public void Labirint_AuthorizeViaMyLabirintLink_LightboxWasShown()
+        {
+            // Сохраним локаторы
+            var myLabirintlocator = By.ClassName("top-link-main_cabinet");
+            var authorizeButtonLocator =
+                By.CssSelector(".dropdown-block-opened [data-sendto='authorize'].b-menu-list-title");
+            var LightboxLocator = By.ClassName("lab-modal-content");
+           //Перейти на страницу
+           driver.Navigate().GoToUrl("https://www.labirint.ru/");
+           //Навести на "Мой лабиринт" + возможно подождать раскрытия
+           new Actions(driver)
+               .MoveToElement(driver.FindElement(myLabirintlocator))
+               .Build()
+               .Perform();
+           //Кликаем "Вход"
+           wait.Until(ExpectedConditions.ElementIsVisible(authorizeButtonLocator)); // установила package DotNetSeleniumExtras.WaitHelpers
+               driver.FindElement(authorizeButtonLocator).Click(); 
+            //Проверяем, что ЛБ отобразился
+           Assert.IsTrue(driver.FindElement(LightboxLocator).Displayed,"После клика на 'Вход или регистрация в Лабиринте' не отобразился ЛБ");
+        }
 
-private ChromeDriver driver;
-private readonly By sarchInputLocator = By.Name("search");
+        [Test]
+        public void Labirint_FillFormsOnGuestbook_Success()
+        {
+            //локаторы
+            var searchInArchive = By.Id("btwo");
+            var fieldNameLocator = By.Name("sname");
+            var fieldKeyWordsLocator = By.CssSelector("input[name=keywords]");
+            var yearEndLocator = By.Name("year_end");
+            var notForThisLinkLocator = By.Id("hd");
+            var lightboxLocator = By.Id("notForGuestbook");
+            //переходим на страницу
+            driver.Navigate().GoToUrl("https://www.labirint.ru/guestbook/");
+            
+            //Кликнуть “Поиск в архиве”
+            driver.FindElement(searchInArchive).Click();
+            
+            //В поле "Имя" ввести свое имя
+            driver.FindElement(fieldNameLocator).SendKeys("Дарья");
+            
+            //В поле "Ключевые слова" ввести какой-либо текст
+            driver.FindElement(fieldKeyWordsLocator).SendKeys("какой-то текст");
+            
+            //Очистить поле "Ключевые слова"
+            driver.FindElement(fieldKeyWordsLocator).Clear();
+            
+            //Выбрать год окончания поиска 2019
+            var selectElement = new SelectElement(driver.FindElement(yearEndLocator));
+            selectElement.SelectByText("2019");
+            
+            //Проверить, что выбрался год окончания поиска 2019
+            var selectedYear = selectElement.SelectedOption.Text;
+            Assert.AreEqual("2019", selectedYear, "Неверно выбран год окончания поиска");
+            
+            //Кликнуть по “Для чего он не предназначен” (справа вверху формы)
+            driver.FindElement(notForThisLinkLocator).Click();
+            
+            //Проверить видимость подсказки после клика по “Для чего он не предназначен”
+            Assert.IsTrue(driver.FindElement(lightboxLocator).Displayed, "Не отобразился ЛБ 'Для чего он не предназначен'");
+            
+        }
 
-[Test]
-public void Wikipedia_Search_Success()
-{
-driver.Navigate().GoToUrl("https://ru.wikipedia.org/");
-var searchInput = driver.FindElement(sarchInputLocator);
-searchInput.SendKeys("Selenium");
+        
+        [Test]
+        public void Locators()
+        {
+            driver.Navigate().GoToUrl("https://www.labirint.ru/");
+            var cookiePolicyAgree = By.ClassName("js-cookie-policy-agree");
+            var booksMenu = By.CssSelector("[data_event_content='Книги']");
+            var allBooks = By.CssSelector("a.b-menu-list-title-first[href='/books/']"); //fixed
+            var addBookInCart = By.XPath("(//*[contains(@onclick,'shopingnew')])[1]"); //fixed
+            var issueOrder = By.CssSelector("a.btn-primary.btn-more");//fixed
+            var beginOrder = By.CssSelector("#cart-total-default button");//fixed
+            var chooseDeliveryType = By.CssSelector("button[class*='delivery__profiles-change-btn']");
+            var chooseCourierDelivery = By.CssSelector("li[class$='pointer']");
+            var city = By.Id("deliveryAddress");
+            var cityError = By.CssSelector(".error-informer");//fixed
+            var suggestedCity = By.CssSelector("ymaps[data-suggest='true']");
+            //var firstDeliveryCompany = By.CssSelector("div[class^='delivery--courier-delivery'] li:first-child");
+            var firstDeliveryCompany = By.ClassName("cdp-container");
+            var confirm = By.ClassName("button-save");
+            var courierDeliveryLightbox = By.ClassName("delivery--controls-block");
+        }
 
-var searchButton = driver.FindElement(By.Name("go"));
-searchButton.Click();
+        [Test]
+        public void BasketPage_EnterInvalidCity_ErrorCity()
+        {
+            //arrange
+            var homePage = new HomePage(driver, wait);
+            homePage.OpenPage();
+            homePage.AddBookToCard();
 
-var expectedText = "Selenium — Википедия";
-Assert.True(driver.Title.Contains($"{expectedText}"), $"Ожидали Title = '{expectedText}'\r\n" +
-$"Получили '{driver.Title}'");
-}
+            var basketPage = new BasketPage(driver, wait);
+            basketPage.ChooseCourierDelivery();
+            
+            //act
+            var courier = new CourierDeliveryLightbox(driver, wait);
+            courier.EnterInvalidCity();
+            
+            //assert
+            Assert.IsTrue(courier.IsVisibleErrorCity(), "Не появилось сообщение об ошибке при вводе некорретного названия города");
+        }
 
-private By emailInputLokator = By.ClassName("email");
-private By buttonWruteToMeLokator = By.Id("write-to-me");
-private By resultTextLokator = By.Name("result-text");
-private By resultEmailLokator = By.TagName("pre");
-private By linkAnotherEmailLokator = By.LinkText("указать другой e-mail");
-private string urlFixPc = "https://qa-course.kontur.host/sele...";
+        [Test]
+        //[Repeat(5)]
+        public void BasketPage_FillAll_Success()
+        {
+            //arrange
+            var homePage = new HomePage(driver, wait);
+            homePage.OpenPage();
+            homePage.AddBookToCard();
 
+            var basketPage = new BasketPage(driver, wait);
+            basketPage.ChooseCourierDelivery();
+            
+            //act
+            var courier = new CourierDeliveryLightbox(driver, wait);
+            courier.EnterValidAddress();
+            courier.ChooseDeliveryCompany();
+            
+            //assert
+            Assert.IsFalse(courier.IsVisibleLightbox(), "ЛБ с выбором доставки не закрылся");
+        }
 
-[Test]
-public void FixPc_SendEmail_Success()
-{
-var expectedResultText = "Заявка успешно создана! Мы скоро вам напишем по этому e-mail:";
-//перейти по урлу
-driver.Navigate().GoToUrl(urlFixPc);
-
-//указать алрес мыла
-var email = "test@mail.ru";
-driver.FindElement(emailInputLokator).SendKeys(email);
-WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-wait.Until(e => e.FindElement(emailInputLokator)).SendKeys(email); 
- 
-
-//Нажать кнопку
-driver.FindElement(buttonWruteToMeLokator).Click();
-//проверяем что появился текст "Зяавка принята"
-Assert.IsTrue(driver.FindElement(resultTextLokator).Displayed,
-"Сообщение об успехе создания заявки отображается");
-Assert.AreEqual(expectedResultText, driver.FindElement(resultTextLokator).Text,
-"Неверное сообщение об успехе создания заявки");
-//проверяем что емейл совпадает с тем что отправляли
-Assert.AreEqual(email, driver.FindElement(resultEmailLokator).Text,
-"Неверный емейл на кторый будем отвечать");
-//проверяем что появилась ссылка "указать другой емейл"
-Assert.IsTrue(driver.FindElement(linkAnotherEmailLokator).Displayed,
-"Ссылка 'Указать другой e-mail' отображается");
-
-
-}
-
-[Test]
-public void FixPc_ClickLinkAnotherEmail_Success()
-{
-//перейти по урлу
-driver.Navigate().GoToUrl(urlFixPc);
-
-//указать алрес мыла
-var email = "test@mail.ru";
-driver.FindElement(emailInputLokator).SendKeys(email);
-//Нажать кнопку
-driver.FindElement(buttonWruteToMeLokator).Click();
-//Кликнуть ссылку "указать другой емаил"
-driver.FindElement(linkAnotherEmailLokator).Click();
-//проверим что поле очистило
-Assert.IsEmpty(driver.FindElement(emailInputLokator).Text, "Ожидали что поле для ввода емейла осистится");
-//проверим что кнопка появилась
-Assert.IsTrue(driver.FindElement(buttonWruteToMeLokator).Displayed,
-"Ожидали, что кнопка 'Наишите мне' отображается");
-//проверим что исчезда ссылка "указать другой емаил"
-Assert.AreEqual(0, driver.FindElements(linkAnotherEmailLokator).Count);
-}
-
-
-[TearDown]
-public void TearDown()
-{
-driver.Quit();
-}
-}
+        [Test]
+        public void CalendarDatePicker()
+        {
+            /*Сценарий:
+            1. Открыть https://jqueryui.com/datepicker/
+            2. Выставить дату = сегодня + 8 дней
+            3. Проверить, что выставилась дата = сегодня + 8 дней*/
+            //var datePicker = By.Id("datepicker");
+            var date = DateTime.Today.AddDays(8);
+            var expectedDate = date.ToString("d", DateTimeFormatInfo.InvariantInfo);
+            driver.Navigate().GoToUrl("https://jqueryui.com/datepicker/");
+            var frameElement = driver.FindElement(By.TagName("iframe"));
+            driver.SwitchTo().Frame(frameElement);
+            (driver as IJavaScriptExecutor).ExecuteScript("$('#datepicker').datepicker( 'setDate' , '+ 8')");
+            var resultDate = (driver as IJavaScriptExecutor).ExecuteScript("return $('.hasDatepicker').val()").ToString();
+            Assert.AreEqual(expectedDate, resultDate, "Дата не соответствует");
+        }
+       
+  }
 }

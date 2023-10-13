@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj": {}
+    "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj": {
+    "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
+        "projectUniqueName": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
         "projectName": "SeleniumTests",
-        "projectPath": "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
-        "packagesPath": "C:\\Users\\Артем\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\obj\\",
+        "projectPath": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
+        "packagesPath": "C:\\Users\\d.kovaleva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Артем\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\d.kovaleva\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -38,17 +38,53 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "DotNetSeleniumExtras.WaitHelpers": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
+            "GetText.NET": {
+              "target": "Package",
+              "version": "[1.7.14, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.1.0, )"
+            },
+            "NGettext": {
+              "target": "Package",
+              "version": "[0.6.7, )"
+            },
+            "NMock3": {
+              "target": "Package",
+              "version": "[3.5.44, )"
             },
             "NUnit": {
               "target": "Package",
               "version": "[3.13.3, )"
             },
+            "NUnit.Mocks": {
+              "target": "Package",
+              "version": "[2.6.4, )"
+            },
+            "NUnitV2.Core": {
+              "target": "Package",
+              "version": "[2.7.1, )"
+            },
+            "Nunit.Framework.TestCaseStorage": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Selenium.RC": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[4.1.0, )"
+              "version": "[4.6.0, )"
             }
           },
           "imports": [
@@ -57,7 +93,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -66,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.414\\RuntimeIdentifierGraph.json"
         }
       }
     }

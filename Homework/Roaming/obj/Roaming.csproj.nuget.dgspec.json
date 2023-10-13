@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Артем\\RiderProjects\\Homework\\Roaming\\Roaming.csproj": {}
+    "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\Homework\\Roaming\\Roaming.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Артем\\RiderProjects\\Homework\\Roaming\\Roaming.csproj": {
+    "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\Homework\\Roaming\\Roaming.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Артем\\RiderProjects\\Homework\\Roaming\\Roaming.csproj",
+        "projectUniqueName": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\Homework\\Roaming\\Roaming.csproj",
         "projectName": "Roaming",
-        "projectPath": "C:\\Users\\Артем\\RiderProjects\\Homework\\Roaming\\Roaming.csproj",
-        "packagesPath": "C:\\Users\\Артем\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Артем\\RiderProjects\\Homework\\Roaming\\obj\\",
+        "projectPath": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\Homework\\Roaming\\Roaming.csproj",
+        "packagesPath": "C:\\Users\\d.kovaleva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\Homework\\Roaming\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Артем\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\d.kovaleva\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.310\\RuntimeIdentifierGraph.json"
         }
       }
     }

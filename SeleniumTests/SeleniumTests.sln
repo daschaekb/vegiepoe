@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTests", "SeleniumTests\SeleniumTests.csproj", "{408C0406-3A0A-4300-89DC-D28588C4B8A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium automation testing", "Selenium automation testing\Selenium automation testing.csproj", "{FDFC9EF6-1350-4519-B174-2A845FAF89EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyProject1", "EmptyProject1\EmptyProject1.csproj", "{8ACA24FF-4645-43C9-8FF8-AB0BD62EA47E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{408C0406-3A0A-4300-89DC-D28588C4B8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{408C0406-3A0A-4300-89DC-D28588C4B8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{408C0406-3A0A-4300-89DC-D28588C4B8A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDFC9EF6-1350-4519-B174-2A845FAF89EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDFC9EF6-1350-4519-B174-2A845FAF89EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDFC9EF6-1350-4519-B174-2A845FAF89EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDFC9EF6-1350-4519-B174-2A845FAF89EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACA24FF-4645-43C9-8FF8-AB0BD62EA47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACA24FF-4645-43C9-8FF8-AB0BD62EA47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACA24FF-4645-43C9-8FF8-AB0BD62EA47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACA24FF-4645-43C9-8FF8-AB0BD62EA47E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

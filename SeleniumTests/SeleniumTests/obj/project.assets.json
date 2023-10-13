@@ -2,6 +2,31 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.10.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
+        }
+      },
+      "GetText.NET/1.7.14": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/GetText.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/GetText.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.CodeCoverage/17.1.0": {
         "type": "package",
         "compile": {
@@ -155,7 +180,9 @@
           "lib/netcoreapp2.1/Microsoft.TestPlatform.Utilities.dll": {},
           "lib/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.Common.dll": {},
           "lib/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {},
-          "lib/netcoreapp2.1/testhost.dll": {}
+          "lib/netcoreapp2.1/testhost.dll": {
+            "related": ".deps.json"
+          }
         },
         "runtime": {
           "lib/netcoreapp2.1/Microsoft.TestPlatform.CommunicationUtilities.dll": {},
@@ -165,7 +192,9 @@
           "lib/netcoreapp2.1/Microsoft.TestPlatform.Utilities.dll": {},
           "lib/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.Common.dll": {},
           "lib/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {},
-          "lib/netcoreapp2.1/testhost.dll": {}
+          "lib/netcoreapp2.1/testhost.dll": {
+            "related": ".deps.json"
+          }
         },
         "resource": {
           "lib/netcoreapp2.1/cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll": {
@@ -305,22 +334,56 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NGettext/0.6.7": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NGettext.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NGettext.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NMock3/3.5.44": {
+        "type": "package",
+        "compile": {
+          "lib/net40/NMock3.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/NMock3.dll": {
+            "related": ".xml"
+          }
         }
       },
       "NuGet.Frameworks/5.11.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {}
+          "lib/netstandard2.0/NuGet.Frameworks.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {}
+          "lib/netstandard2.0/NuGet.Frameworks.dll": {
+            "related": ".xml"
+          }
         }
       },
       "NUnit/3.13.3": {
@@ -329,39 +392,139 @@
           "NETStandard.Library": "2.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/nunit.framework.dll": {}
+          "lib/netstandard2.0/nunit.framework.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/nunit.framework.dll": {}
+          "lib/netstandard2.0/nunit.framework.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "build/NUnit.props": {}
         }
       },
-      "Selenium.WebDriver/4.1.0": {
+      "Nunit.Framework.TestCaseStorage/1.0.1": {
         "type": "package",
         "dependencies": {
-          "Newtonsoft.Json": "12.0.3"
+          "NUnit": "2.6.1"
+        },
+        "compile": {
+          "lib/nunit.framework.testcasestorage.dll": {}
+        },
+        "runtime": {
+          "lib/nunit.framework.testcasestorage.dll": {}
+        }
+      },
+      "NUnit.Mocks/2.6.4": {
+        "type": "package",
+        "dependencies": {
+          "NUnit": "(, )"
+        },
+        "compile": {
+          "lib/nunit.mocks.dll": {}
+        },
+        "runtime": {
+          "lib/nunit.mocks.dll": {}
+        }
+      },
+      "NUnitV2.Core/2.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/nunit.core.dll": {},
+          "lib/nunit.core.interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/nunit.core.dll": {},
+          "lib/nunit.core.interfaces.dll": {}
+        }
+      },
+      "Selenium.RC/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.Support/4.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.6.0"
+        },
+        "compile": {
+          "lib/net5.0/WebDriver.Support.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/WebDriver.Support.dll": {}
+        }
+      },
+      "Selenium.WebDriver/4.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
           "lib/net5.0/WebDriver.dll": {}
         },
         "runtime": {
           "lib/net5.0/WebDriver.dll": {}
+        },
+        "build": {
+          "build/Selenium.WebDriver.targets": {}
         }
       },
       "System.Reflection.Metadata/1.6.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/System.Reflection.Metadata.dll": {}
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/System.Reflection.Metadata.dll": {}
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
         }
       }
     }
   },
   "libraries": {
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "sha512": "xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "type": "package",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
+        "dotnetseleniumextras.waithelpers.nuspec",
+        "lib/net35/SeleniumExtras.WaitHelpers.dll",
+        "lib/net40/SeleniumExtras.WaitHelpers.dll",
+        "lib/net45/SeleniumExtras.WaitHelpers.dll",
+        "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll"
+      ]
+    },
+    "GetText.NET/1.7.14": {
+      "sha512": "o+XYsD5STsbIJ/IN+zntfRdIdhZpFaul+/7zgPj7GmPVGVHnVqm3YQwNKwLeKE5i3vQazq1Ov2QfXnCIY4oKqw==",
+      "type": "package",
+      "path": "gettext.net/1.7.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "gettext.net.1.7.14.nupkg.sha512",
+        "gettext.net.nuspec",
+        "lib/netstandard2.0/GetText.dll",
+        "lib/netstandard2.0/GetText.xml"
+      ]
+    },
     "Microsoft.CodeCoverage/17.1.0": {
       "sha512": "0N/ZJ71ncCxQWhgtkEYKOgu2oMHa8h1tsOUbhmIKXF8UwtSUCe4vHAsJ3DVcNWRwNfQzSTy263ZE+QF6MdIhhQ==",
       "type": "package",
@@ -1076,10 +1239,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.3",
+      "path": "newtonsoft.json/13.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1098,13 +1261,59 @@
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
         "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "NGettext/0.6.7": {
+      "sha512": "gT6bf5PVayvTuEIuM2XSNqthrtn9W+LlCX4RD//Nb4hrT3agohHvPdjpROgNGgyXDkjwE74F+EwDwqUgJCJG8A==",
+      "type": "package",
+      "path": "ngettext/0.6.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/NGettext.dll",
+        "lib/net20/NGettext.xml",
+        "lib/net35/NGettext.dll",
+        "lib/net35/NGettext.xml",
+        "lib/net40/NGettext.dll",
+        "lib/net40/NGettext.xml",
+        "lib/net45/NGettext.dll",
+        "lib/net45/NGettext.xml",
+        "lib/net46/NGettext.dll",
+        "lib/net46/NGettext.xml",
+        "lib/netstandard1.0/NGettext.dll",
+        "lib/netstandard1.0/NGettext.xml",
+        "lib/netstandard1.3/NGettext.dll",
+        "lib/netstandard1.3/NGettext.xml",
+        "lib/netstandard2.0/NGettext.dll",
+        "lib/netstandard2.0/NGettext.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/NGettext.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/NGettext.xml",
+        "lib/portable-net40+sl5+win8+wp8/NGettext.dll",
+        "lib/portable-net40+sl5+win8+wp8/NGettext.xml",
+        "ngettext.0.6.7.nupkg.sha512",
+        "ngettext.nuspec"
+      ]
+    },
+    "NMock3/3.5.44": {
+      "sha512": "m1qMzJVQ17xukk6Glbb+gLTL67Mn/0fF5VG3nJEIOaZXSmSU9V9wh9L2wxIOCbHkssm5s1A1QuKWfyLzBtUftA==",
+      "type": "package",
+      "path": "nmock3/3.5.44",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/NMock3/NMock3 Cheat Sheet.pdf",
+        "content/NMock3/NMockTest.cs",
+        "lib/net35/NMock3.dll",
+        "lib/net35/NMock3.xml",
+        "lib/net40/NMock3.dll",
+        "lib/net40/NMock3.xml",
+        "lib/sl40/NMock3.dll",
+        "lib/sl40/NMock3.xml",
+        "nmock3.3.5.44.nupkg.sha512",
+        "nmock3.nuspec"
       ]
     },
     "NuGet.Frameworks/5.11.0": {
@@ -1149,13 +1358,88 @@
         "nunit.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.1.0": {
-      "sha512": "d4smisz4a/wJCM2TzkKTl+BLfvZUTvaobhKElDfCVZlvY8ThsC8VAoBNWTlg1H/GGzIP//yVGko/W0FILTgkYA==",
+    "Nunit.Framework.TestCaseStorage/1.0.1": {
+      "sha512": "cor8GU/Zw6k85aLuH8REMGDaTJ2lxhi0ocsbz4gv6w/UVblXjENx8FMJHy6fNJTfhPcvB6ZBjPueDy3ZJJMUpg==",
       "type": "package",
-      "path": "selenium.webdriver/4.1.0",
+      "path": "nunit.framework.testcasestorage/1.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/nunit.framework.testcasestorage.dll",
+        "lib/nunit.framework.testcasestorage.pdb",
+        "nunit.framework.testcasestorage.1.0.1.nupkg.sha512",
+        "nunit.framework.testcasestorage.nuspec"
+      ]
+    },
+    "NUnit.Mocks/2.6.4": {
+      "sha512": "Ag1krVH/4ViDnd+1BilY3TMVZ/BcVo3t/5mh4KyENAS1MxPFvrpU8DUTJi3/eFBZJUIvJntNYKWaZrDdYYEokA==",
+      "type": "package",
+      "path": "nunit.mocks/2.6.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/nunit.mocks.dll",
+        "license.txt",
+        "nunit.mocks.2.6.4.nupkg.sha512",
+        "nunit.mocks.nuspec"
+      ]
+    },
+    "NUnitV2.Core/2.7.1": {
+      "sha512": "FfgsCVHouNCGzAfOMgab10OQu257cjB0CO3TXXgUkiaY6RgDHfMAPNIxYr9HckczvO3AtdYd/XqlsF3XlDWOlg==",
+      "type": "package",
+      "path": "nunitv2.core/2.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/nunit.core.dll",
+        "lib/nunit.core.interfaces.dll",
+        "license.txt",
+        "nunitv2.core.2.7.1.nupkg.sha512",
+        "nunitv2.core.nuspec"
+      ]
+    },
+    "Selenium.RC/3.1.0": {
+      "sha512": "PVfriRaQoorRtRw2I41hn0WhkmKoAYQHsV+AuYy3L32l9uCJg7aeQwaq3O6QXykZIi00TF9+Jeiah38/kYT4HA==",
+      "type": "package",
+      "path": "selenium.rc/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/ThoughtWorks.Selenium.Core.dll",
+        "lib/net35/ThoughtWorks.Selenium.Core.xml",
+        "lib/net40/ThoughtWorks.Selenium.Core.dll",
+        "lib/net40/ThoughtWorks.Selenium.Core.xml",
+        "selenium.rc.3.1.0.nupkg.sha512",
+        "selenium.rc.nuspec"
+      ]
+    },
+    "Selenium.Support/4.6.0": {
+      "sha512": "sbZDn0v4fNwhB0vyhWZD+P9Tr3MlPOT5gA+SJTcqDxe0ieS1SOhF0koV2zmh1qwNq8dgR+6YxHhmhh3EntEZ+w==",
+      "type": "package",
+      "path": "selenium.support/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/icon.png",
+        "lib/net45/WebDriver.Support.dll",
+        "lib/net46/WebDriver.Support.dll",
+        "lib/net47/WebDriver.Support.dll",
+        "lib/net48/WebDriver.Support.dll",
+        "lib/net5.0/WebDriver.Support.dll",
+        "lib/netstandard2.0/WebDriver.Support.dll",
+        "lib/netstandard2.1/WebDriver.Support.dll",
+        "selenium.support.4.6.0.nupkg.sha512",
+        "selenium.support.nuspec"
+      ]
+    },
+    "Selenium.WebDriver/4.6.0": {
+      "sha512": "wdkzNyVYvdI0YOeScP42ubshPOjY7dj8aXHyetlhVTqKo5gAbYnOJU//W5q0hVSVw4hsisNvgR/UQqPvgM8rew==",
+      "type": "package",
+      "path": "selenium.webdriver/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Selenium.WebDriver.targets",
         "images/icon.png",
         "lib/net45/WebDriver.dll",
         "lib/net46/WebDriver.dll",
@@ -1164,7 +1448,10 @@
         "lib/net5.0/WebDriver.dll",
         "lib/netstandard2.0/WebDriver.dll",
         "lib/netstandard2.1/WebDriver.dll",
-        "selenium.webdriver.4.1.0.nupkg.sha512",
+        "manager/linux/selenium-manager",
+        "manager/macos/selenium-manager",
+        "manager/windows/selenium-manager.exe",
+        "selenium.webdriver.4.6.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
@@ -1192,25 +1479,34 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DotNetSeleniumExtras.WaitHelpers >= 3.11.0",
+      "GetText.NET >= 1.7.14",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
+      "NGettext >= 0.6.7",
+      "NMock3 >= 3.5.44",
       "NUnit >= 3.13.3",
-      "Selenium.WebDriver >= 4.1.0"
+      "NUnit.Mocks >= 2.6.4",
+      "NUnitV2.Core >= 2.7.1",
+      "Nunit.Framework.TestCaseStorage >= 1.0.1",
+      "Selenium.RC >= 3.1.0",
+      "Selenium.Support >= 4.6.0",
+      "Selenium.WebDriver >= 4.6.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Артем\\.nuget\\packages\\": {}
+    "C:\\Users\\d.kovaleva\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
+      "projectUniqueName": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
       "projectName": "SeleniumTests",
-      "projectPath": "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
-      "packagesPath": "C:\\Users\\Артем\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Артем\\RiderProjects\\SeleniumTests\\SeleniumTests\\obj\\",
+      "projectPath": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\SeleniumTests.csproj",
+      "packagesPath": "C:\\Users\\d.kovaleva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\d.kovaleva\\Desktop\\GitHub VegiePoe\\vegiepoe\\SeleniumTests\\SeleniumTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Артем\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\d.kovaleva\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1234,17 +1530,53 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "DotNetSeleniumExtras.WaitHelpers": {
+            "target": "Package",
+            "version": "[3.11.0, )"
+          },
+          "GetText.NET": {
+            "target": "Package",
+            "version": "[1.7.14, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.1.0, )"
+          },
+          "NGettext": {
+            "target": "Package",
+            "version": "[0.6.7, )"
+          },
+          "NMock3": {
+            "target": "Package",
+            "version": "[3.5.44, )"
           },
           "NUnit": {
             "target": "Package",
             "version": "[3.13.3, )"
           },
+          "NUnit.Mocks": {
+            "target": "Package",
+            "version": "[2.6.4, )"
+          },
+          "NUnitV2.Core": {
+            "target": "Package",
+            "version": "[2.7.1, )"
+          },
+          "Nunit.Framework.TestCaseStorage": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
+          "Selenium.RC": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+          "Selenium.Support": {
+            "target": "Package",
+            "version": "[4.6.0, )"
+          },
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[4.1.0, )"
+            "version": "[4.6.0, )"
           }
         },
         "imports": [
@@ -1253,7 +1585,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -1262,8 +1595,60 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.414\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NMock3 3.5.44' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "NMock3",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Nunit.Framework.TestCaseStorage 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Nunit.Framework.TestCaseStorage",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NUnit.Mocks 2.6.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "NUnit.Mocks",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NUnitV2.Core 2.7.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "NUnitV2.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Selenium.RC 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Selenium.RC",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
